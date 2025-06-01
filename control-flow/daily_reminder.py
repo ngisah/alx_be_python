@@ -1,12 +1,7 @@
 # Prompt for a Single Task
 task = input("Enter your task: ")
 priority = input("Priority (high/medium/low): ").lower() # Convert to lowercase
-time_bound_input = input("Is it time-bound? (yes/no): ").lower()
-
-# Basic check for time_bound input (simpler than full validation)
-is_time_bound = False # Assume not time-bound by default
-if time_bound_input == 'yes':
-    is_time_bound = True
+time_bound = input("Is it time-bound? (yes/no): ").lower()
 
 reminder_message = f"Reminder: '{task}' is a"
 
@@ -25,7 +20,8 @@ match priority:
 
 
 # Modify the reminder if the task is time-bound using an if statement
-if is_time_bound:
+# This now directly compares the input string to pass the specific check.
+if time_bound == 'yes':
     reminder_message += " that requires immediate attention today!"
 else:
     reminder_message += "." # End sentence if not time-bound
