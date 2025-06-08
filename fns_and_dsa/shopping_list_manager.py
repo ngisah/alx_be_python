@@ -23,20 +23,20 @@ def exit_program():
     print("Goodbye!")
     return False
 
-
-def main(): 
+def (display_menu):
+    """Display the menu options."""
+    print("\nShopping List Manager")
+    print("1. Add item")
+    print("2. Remove item")
+    print("3. View list")
+    print("4. Exit")
+    print("Please choose an option (1-4): ", end='')
+    choice = input().strip()
+    return choice
+def main():
     """Main function to run the shopping list manager."""
-    print("Welcome to the Shopping List Manager!")
-    running = True
-    while running:
-        print("\nOptions:")
-        print("1. Add item")
-        print("2. Remove item")
-        print("3. View list")
-        print("4. Exit")
-        
-        choice = input("Choose an option (1-4): ").strip()
-        
+    while True:
+        choice = display_menu()
         if choice == '1':
             item = input("Enter the item to add: ").strip()
             add_item(item)
@@ -46,11 +46,12 @@ def main():
         elif choice == '3':
             view_list()
         elif choice == '4':
-            running = exit_program()
+            if not exit_program():
+                break
         else:
-            print("Invalid choice. Please try again.")
-
+            print("Invalid option. Please try again.")  
 if __name__ == "__main__":
     main()
+
 
         
